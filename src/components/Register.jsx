@@ -1,21 +1,34 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const newUserEnter = (e) => {
+    setUsername(e.target.value);
+  };
+  const newPasswordEnter = (e) => {
+    setPassword(e.target.value);
+  };
+  const onClick = (e) => {
+    e.preventDefault();
+    const newUser = {
+      username,
+      password,
+    };
+    axios
+      .post("http://localhost:5000/user/add", newUser)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
-      <div class="mb-3">
-        <label class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Example textarea</label>
-        <input class="form-control"></input>
-      </div>
+      <h1>Sign up new user</h1>
+      <form>
+        <input onChange={newUserEnter} placeholder="Enter Username"></input>
+        <input onChange={newPasswordEnter} placeholder="Enter password"></input>
+        <button onClick={onClick}>Submit</button>
+      </form>
     </div>
   );
 };
