@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -27,7 +28,9 @@ const Register = () => {
       <form>
         <input onChange={newUserEnter} placeholder="Enter Username"></input>
         <input onChange={newPasswordEnter} placeholder="Enter password"></input>
-        <button onClick={onClick}>Submit</button>
+        <button onClick={onClick}>
+          <Link to={"/about"}>Register</Link>
+        </button>
       </form>
     </div>
   );
