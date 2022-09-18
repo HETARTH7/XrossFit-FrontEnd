@@ -5,6 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 import About from "./About";
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
+import Footer from "./Footer";
 const colors = {
   brand: {
     900: "#1a365d",
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </ChakraProvider>
   );
 };

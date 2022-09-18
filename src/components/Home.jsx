@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
 import HomeNav from "./HomeNav";
-import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -67,12 +67,13 @@ const Home = () => {
               <Button variant="outline" mr={3} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="blue">Learn More</Button>
+              <Button colorScheme="red">
+                <Link to={"/about"}>Learn More</Link>
+              </Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
       </>
-      <Footer />
     </div>
   );
 };

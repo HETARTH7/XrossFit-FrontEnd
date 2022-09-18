@@ -9,6 +9,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Footer from "./Footer";
+import Back from "./Back";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -32,12 +33,13 @@ const Register = () => {
   };
   return (
     <div>
+      <Back />
       <Box
-        w={[200, 300, 400]}
-        h={[300, 400, 500]}
-        mt={[50, 100, 150]}
-        ml={[50, 110, 650]}
-        borderRadius={[20]}
+        w={400}
+        h={500}
+        mt={150}
+        ml={650}
+        borderRadius={20}
         backgroundColor="#eee"
       >
         <FormControl>
