@@ -8,6 +8,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Footer from "./Footer";
+
 const Login = () => {
   return (
     <div>
