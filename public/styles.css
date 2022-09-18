@@ -4,3 +4,7 @@
   position: fixed;
   bottom: 0;
 }
+.form-bottom {
+  padding-left: 15rem;
+  margin-top: 10rem;
+}
