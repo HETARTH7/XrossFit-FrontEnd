@@ -1,14 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Heading } from "@chakra-ui/react";
+import Typewriter from "typewriter-effect";
+import HomeNav from "./HomeNav";
+import Footer from "./Footer";
+
 const Home = () => {
   return (
     <div>
-      <button>
-        <Link to={"/login"}>Login</Link>
-      </button>
-      <button>
-        <Link to={"/register"}>Register</Link>
-      </button>
+      <HomeNav />
+      <Heading color="#fff" fontSize={60}>
+        <Typewriter
+          onInit={(typewriter) => {
+            typewriter
+              .typeString("HELLO")
+              .pauseFor(800)
+              .deleteAll()
+              .typeString("Welcome to the GYM App")
+              .start();
+          }}
+        />
+      </Heading>
+
+      <Footer />
     </div>
   );
 };

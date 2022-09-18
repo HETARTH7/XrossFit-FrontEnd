@@ -24,10 +24,10 @@ const Register = () => {
   };
   return (
     <div>
-      <h1>Sign up new user</h1>
+      <h1>Create your new account</h1>
       <form>
-        <input onChange={newUserEnter} placeholder="Enter Username"></input>
-        <input onChange={newPasswordEnter} placeholder="Enter password"></input>
+        <input onChange={newUserEnter} placeholder="Email"></input>
+        <input onChange={newPasswordEnter} placeholder="Password"></input>
         <button onClick={onClick}>
           <Link to={"/about"}>Register</Link>
         </button>

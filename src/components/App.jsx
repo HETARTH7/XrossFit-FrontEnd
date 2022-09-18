@@ -1,21 +1,19 @@
 import React from "react";
-import { extendTheme, ChakraProvider } from "@chakra-ui/react";
 import Home from "./Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import About from "./About";
-
+import { extendTheme, ChakraProvider } from "@chakra-ui/react";
 const colors = {
   brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
+    900: "#1a365d",
+    800: "#153e75",
+    700: "#2a69ac",
   },
-}
+};
 
-const theme = extendTheme({ colors })
-
+const theme = extendTheme({ colors });
 const App = () => {
   return (
     <ChakraProvider theme={theme}>
