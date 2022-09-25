@@ -1,10 +1,36 @@
 .footer {
-  color: #eee;
-  margin-left: 50rem;
+  margin-left: 45rem;
   position: fixed;
   bottom: 0;
 }
 .form-bottom {
   padding-left: 15rem;
   margin-top: 10rem;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  height: 3rem;
+}
+.nav-link {
+  padding-left: 2rem;
+}
+.login-form {
+  width: 20rem;
+  text-align: center;
+  margin-left: 38rem;
+  border: solid;
+  height: 25rem;
+  margin-top: 10rem;
+}
+.form-heading {
+  width: 20rem;
+  float: left;
+}
+.form-input {
+  margin: 1rem;
+}
+.form-button {
+  margin: 5rem;
 }
