@@ -7,7 +7,17 @@ const ExLog = () => {
     .get("http://localhost:5000/exercise")
     .then((res) => setExercises(res.data))
     .catch((err) => console.log(err));
-
+  const deleteExercise = (id) => {
+    axios
+      .post(`http://localhost:5000/exercise/delete/${id}`)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+    setExercises((prevValue) => {
+      return prevValue.filter((index) => {
+        return index._id !== id;
+      });
+    });
+  };
   return (
     <div>
       <Navbar />
@@ -24,10 +34,15 @@ const ExLog = () => {
           {exercises.map((exercise, index) => {
             return (
               <tr key={index}>
-                <td key={exercise.username}>{exercise.username}</td>
-                <td key={exercise.exerciseName}>{exercise.exerciseName}</td>
-                <td key={exercise.duration}>{exercise.duration}</td>
-                <td key={exercise.date}>{exercise.date}</td>
+                <td>{exercise.username}</td>
+                <td>{exercise.exerciseName}</td>
+                <td>{exercise.duration}</td>
+                <td>{exercise.date}</td>
+                <td>
+                  <button onClick={() => deleteExercise(exercise._id)}>
+                    DELETE
+                  </button>
+                </td>
               </tr>
             );
           })}
