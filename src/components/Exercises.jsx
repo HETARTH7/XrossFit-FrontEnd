@@ -1,7 +1,12 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 const Exercises = () => {
-  return <div>Exercises</div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 };
 
 export default Exercises;
