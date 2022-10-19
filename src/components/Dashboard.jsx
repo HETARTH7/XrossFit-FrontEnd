@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-const Dashboard = ({ user }) => {
+const Dashboard = () => {
   const [exercises, setExercises] = useState([]);
   axios
-    .get(`http://localhost:5000/exercise/${user}`)
+    .get("http://localhost:5000/exercise")
     .then((res) => setExercises(res.data))
     .catch((err) => console.log(err));
   const deleteExercise = (id) => {
@@ -21,7 +21,6 @@ const Dashboard = ({ user }) => {
   return (
     <div>
       <Navbar />
-      <h1>Hello {user}</h1>
       <table>
         <thead>
           <tr>
