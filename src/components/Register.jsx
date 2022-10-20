@@ -43,7 +43,7 @@ const Register = () => {
             placeholder="Enter your password"
           />
           <button className="form-button" onClick={onClick}>
-            <Link to={"/dashboard"}>Register</Link>
+            <Link to={"/"}>Register</Link>
           </button>
         </form>
       </div>
