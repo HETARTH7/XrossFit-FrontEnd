@@ -16,6 +16,10 @@ a {
 .nav-link {
   padding-left: 2rem;
 }
+#logout{
+  float: right;
+  margin-right: 2rem;
+}
 .login-form {
   width: 22%;
   text-align: center;

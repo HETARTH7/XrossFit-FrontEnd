@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import UserCount from "./UserCount";
 
 const AdminDashboard = () => {
@@ -21,6 +22,9 @@ const AdminDashboard = () => {
   };
   return (
     <div>
+      <Link id="logout" className="nav-link" to={"/"}>
+        Logout
+      </Link>
       <h1>Users</h1>
       <UserCount />
       <div>
