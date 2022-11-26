@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 const Dashboard = () => {
+  const user = sessionStorage.getItem("user");
   const [exercises, setExercises] = useState([]);
   axios
-    .get("http://localhost:5000/exercise")
+    .get(`http://localhost:5000/exercise/${user}`)
     .then((res) => setExercises(res.data))
     .catch((err) => console.log(err));
   const deleteExercise = (id) => {

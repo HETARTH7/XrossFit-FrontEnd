@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Navbar from "./Navbar";
 
 const CreateExercise = () => {
-  const [username, setUsername] = useState("");
+  const username = sessionStorage.getItem("user");
   const [exerciseName, setDescription] = useState("");
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
-  const [users, setUsers] = useState([]);
 
-  const onChangeUsername = (e) => {
-    setUsername(e.target.value);
-  };
   const onChangeDescription = (e) => {
     setDescription(e.target.value);
   };
@@ -39,18 +35,6 @@ const CreateExercise = () => {
     window.location = "/dashboard";
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/user")
-      .then((res) => {
-        if (res.data.length > 0) {
-          setUsers(res.data.map((user) => user.username));
-          setUsername(res.data[0].username);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   return (
     <div>
       <Navbar />
@@ -58,24 +42,8 @@ const CreateExercise = () => {
       <br />
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label>
-            <h5>USERNAME</h5>
-          </label>
           <br />
-          <select
-            required
-            className="form-control"
-            value={username}
-            onChange={onChangeUsername}
-          >
-            {users.map((user) => {
-              return (
-                <option key={user} value={user}>
-                  {user}
-                </option>
-              );
-            })}
-          </select>
+          <h1>{username}</h1>
           <br />
         </div>
         <div className="form-group">
