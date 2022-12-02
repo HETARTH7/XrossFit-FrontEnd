@@ -18,7 +18,6 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     const user = { username, password };
-    console.log(user);
     axios
       .post("http://localhost:5000/auth", user)
       .then((res) => setAuth(res.data.message))
