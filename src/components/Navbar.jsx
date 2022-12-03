@@ -14,7 +14,20 @@ const Navbar = () => {
       <Link className="nav-link" to={"/exercises-list"}>
         Exercises
       </Link>
-      <Link id="logout" className="nav-link" to={"/"} onClick={()=>sessionStorage.clear()}>Logout</Link>
+      <div className="dropdown" style={{ float: "right" }}>
+        <button className="dropbtn">Icon</button>
+        <div className="dropdown-content">
+          <Link to={"/profile"}>Profile</Link>
+          <Link to={"/settings"}>Settings</Link>
+          <Link
+            className="nav-link"
+            to={"/"}
+            onClick={() => sessionStorage.clear()}
+          >
+            Logout
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

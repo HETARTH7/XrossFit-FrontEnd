@@ -41,11 +41,7 @@ const CreateExercise = () => {
       <h3>Add Exercises</h3>
       <br />
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <br />
-          <h1>{username}</h1>
-          <br />
-        </div>
+        <div className="form-group"></div>
         <div className="form-group">
           <label>
             <h5>EXERCISE</h5>

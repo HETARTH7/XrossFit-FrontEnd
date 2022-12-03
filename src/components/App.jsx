@@ -8,6 +8,8 @@ import Exercises from "./Exercises";
 import CreateExercise from "./CreateExercise";
 import AdminLogin from "./AdminLogin";
 import AdminPortal from "./AdminDashboard";
+import Profile from "./Profile";
+import Settings from "./Settings";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/track" element={<CreateExercise />} />
           <Route path="/exercises-list" element={<Exercises />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
       <Footer />

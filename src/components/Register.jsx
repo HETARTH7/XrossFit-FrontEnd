@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import Footer from "./Footer";
 import Back from "./Back";
-import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +12,7 @@ const Register = () => {
   const newPasswordEnter = (e) => {
     setPassword(e.target.value);
   };
-  const onClick = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const newUser = {
       username,
@@ -23,12 +22,13 @@ const Register = () => {
       .post("http://localhost:5000/user/add", newUser)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
+    window.location = "/";
   };
   return (
     <div>
       <Back />
       <div>
-        <form className="login-form">
+        <form className="login-form" onSubmit={onSubmit}>
           <h1 className="form-heading">Create New Account</h1>
           <input
             className="form-input"
@@ -42,9 +42,7 @@ const Register = () => {
             type="password"
             placeholder="Enter your password"
           />
-          <button className="form-button" onClick={onClick}>
-            <Link to={"/"}>Register</Link>
-          </button>
+          <button className="form-button">Register</button>
         </form>
       </div>
 
