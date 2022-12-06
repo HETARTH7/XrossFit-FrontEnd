@@ -3,13 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Footer from "./Footer";
-import Dashboard from "./Dashboard";
-import Exercises from "./Exercises";
-import CreateExercise from "./CreateExercise";
-import AdminLogin from "./AdminLogin";
-import AdminPortal from "./AdminDashboard";
-import Profile from "./Profile";
-import Settings from "./Settings";
+import Dashboard from "./user/Dashboard";
+import Exercises from "./user/Exercises";
+import CreateExercise from "./user/CreateExercise";
+import AdminLogin from "./admin/AdminLogin";
+import AdminPortal from "./admin/AdminDashboard";
+import Profile from "./user/Profile";
+import Settings from "./user/Settings";
 
 const App = () => {
   return (

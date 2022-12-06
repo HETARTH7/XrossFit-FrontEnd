@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "./Footer";
 import Back from "./Back";
@@ -6,6 +6,8 @@ import Back from "./Back";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [exists, setExists] = useState("");
+  const [mssg, setMssg] = useState("");
   const newUserEnter = (e) => {
     setUsername(e.target.value);
   };
@@ -20,10 +22,16 @@ const Register = () => {
     };
     axios
       .post("http://localhost:5000/user/add", newUser)
-      .then((res) => console.log(res.data))
+      .then((res) => setExists(res.data.message))
       .catch((err) => console.log(err));
-    window.location = "/";
   };
+  useEffect(() => {
+    if (exists === "OK") {
+      window.location = "/";
+    } else if (exists === "Exists") {
+      setMssg("Username already exists. Enter new Username");
+    }
+  }, [exists]);
   return (
     <div>
       <Back />
@@ -42,6 +50,7 @@ const Register = () => {
             type="password"
             placeholder="Enter your password"
           />
+          <p id="mssg">{mssg}</p>
           <button className="form-button">Register</button>
         </form>
       </div>
