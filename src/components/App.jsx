@@ -12,6 +12,7 @@ import Profile from "./user/Profile";
 import Settings from "./user/Settings";
 import Stock from "./admin/Stock";
 import User from "./admin/User";
+import Shop from "./user/Shop";
 const App = () => {
   return (
     <>
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/exercises-list" element={<Exercises />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
       </BrowserRouter>
       <Footer />

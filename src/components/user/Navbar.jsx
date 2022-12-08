@@ -14,6 +14,9 @@ const Navbar = () => {
       <Link className="nav-link" to={"/exercises-list"}>
         Exercises
       </Link>
+      <Link className="nav-link" to={"/shop"}>
+        Shop
+      </Link>
       <div className="dropdown" style={{ float: "right" }}>
         <button className="dropbtn">User</button>
         <div className="dropdown-content">
