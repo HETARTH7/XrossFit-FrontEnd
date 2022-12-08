@@ -15,7 +15,7 @@ const Navbar = () => {
         Exercises
       </Link>
       <div className="dropdown" style={{ float: "right" }}>
-        <button className="dropbtn">Icon</button>
+        <button className="dropbtn">User</button>
         <div className="dropdown-content">
           <Link to={"/profile"}>Profile</Link>
           <Link to={"/settings"}>Settings</Link>

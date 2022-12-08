@@ -1,13 +1,12 @@
 import React from "react";
 import AdminNav from "./AdminNav";
-
-const AdminDashboard = () => {
+const Stock = () => {
   return (
     <div>
       <AdminNav />
-      AdminDashboard
+      Stock
     </div>
   );
 };
 
-export default AdminDashboard;
+export default Stock;

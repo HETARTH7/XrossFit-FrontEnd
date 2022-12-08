@@ -10,7 +10,8 @@ import AdminLogin from "./admin/AdminLogin";
 import AdminPortal from "./admin/AdminDashboard";
 import Profile from "./user/Profile";
 import Settings from "./user/Settings";
-
+import Stock from "./admin/Stock";
+import User from "./admin/User";
 const App = () => {
   return (
     <>
@@ -21,6 +22,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/admindashboard" element={<AdminPortal />} />
+          <Route path="/manageusers" element={<User />} />
+          <Route path="/stock" element={<Stock />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/track" element={<CreateExercise />} />
           <Route path="/exercises-list" element={<Exercises />} />
