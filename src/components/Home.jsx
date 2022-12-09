@@ -13,7 +13,7 @@ const Home = () => {
               .typeString("HELLO")
               .pauseFor(800)
               .deleteAll()
-              .typeString("<strong>Welcome to the Fitness App</strong>")
+              .typeString("<strong>Welcome to Xross Fit</strong>")
               .start();
           }}
         />
