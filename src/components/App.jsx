@@ -13,6 +13,7 @@ import Settings from "./user/Settings";
 import Stock from "./admin/Stock";
 import User from "./admin/User";
 import Shop from "./user/Shop";
+import Cart from "./user/Cart";
 const App = () => {
   return (
     <>
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
       <Footer />

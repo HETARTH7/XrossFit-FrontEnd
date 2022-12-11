@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const user = sessionStorage.getItem("user");
@@ -11,7 +12,9 @@ const Shop = () => {
     .then((res) => setProduct(res.data))
     .catch((err) => console.log(err));
   const onClick = (e) => {
+    e.preventDefault();
     const cartItem = { user, item };
+    console.log(cartItem);
     axios
       .post("http://localhost:5000/cart/add", cartItem)
       .then((res) => res.data)
@@ -21,12 +24,14 @@ const Shop = () => {
   return (
     <div>
       <Navbar />
+      <button>
+        <Link to={"/cart"}>Cart</Link>
+      </button>
       {product.map((x, index) => {
         return (
           <div key={index}>
             <p>{x.name}</p>
             <button
-              value={x.name}
               onMouseEnter={() => {
                 setItem(x.name);
               }}
