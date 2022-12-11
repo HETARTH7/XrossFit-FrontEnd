@@ -11,10 +11,8 @@ const Shop = () => {
     .get("http://localhost:5000/stock")
     .then((res) => setProduct(res.data))
     .catch((err) => console.log(err));
-  const onClick = (e) => {
-    e.preventDefault();
+  const onClick = () => {
     const cartItem = { user, item };
-    console.log(cartItem);
     axios
       .post("http://localhost:5000/cart/add", cartItem)
       .then((res) => res.data)
