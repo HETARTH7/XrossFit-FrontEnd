@@ -7,12 +7,15 @@ const Shop = () => {
   const user = sessionStorage.getItem("user");
   const [item, setItem] = useState("");
   const [product, setProduct] = useState([]);
+  const [price, setPrice] = useState();
+
   axios
     .get("http://localhost:5000/stock")
     .then((res) => setProduct(res.data))
     .catch((err) => console.log(err));
+
   const onClick = () => {
-    const cartItem = { user, item };
+    const cartItem = { user, item, price };
     axios
       .post("http://localhost:5000/cart/add", cartItem)
       .then((res) => res.data)
@@ -29,17 +32,13 @@ const Shop = () => {
         return (
           <div key={index}>
             <p>{x.name}</p>
+            <p>{x.price}</p>
             <button
               onMouseEnter={() => {
                 setItem(x.name);
+                setPrice(x.price);
               }}
               onClick={onClick}
-              // setItem(x.name);
-              // const cartItem = { user, item };
-              // axios
-              //   .post("http://localhost:5000/cart/add", cartItem)
-              //   .then((res) => res.data)
-              //   .catch((err) => console.log(err));
             >
               Add to Cart
             </button>
