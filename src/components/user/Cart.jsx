@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 const Cart = () => {
   const user = sessionStorage.getItem("user");
   const [item, setItem] = useState([]);
   const [name, setName] = useState("");
   const [n, setN] = useState();
+  var amount = 0;
   axios
     .get(`http://localhost:5000/cart/${user}`)
     .then((res) => setItem(res.data))
@@ -27,6 +29,7 @@ const Cart = () => {
             <th>SNo</th>
             <th>Item</th>
             <th>Quantity</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +39,7 @@ const Cart = () => {
                 <td>{index + 1}</td>
                 <td>{x.name}</td>
                 <td>{x.quantity}</td>
+                <td>{x.price}</td>
                 <td>
                   <button
                     onClick={update}
@@ -63,6 +67,13 @@ const Cart = () => {
           })}
         </tbody>
       </table>
+      <p>
+        {item.forEach((x) => {
+          amount += x.price;
+        })}
+        Total: {amount}
+      </p>
+      <button><Link to={'/payment'}>Place Order</Link></button>
     </div>
   );
 };

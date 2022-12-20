@@ -14,6 +14,8 @@ import Stock from "./admin/Stock";
 import User from "./admin/User";
 import Shop from "./user/Shop";
 import Cart from "./user/Cart";
+import Payment from "./user/Payment";
+
 const App = () => {
   return (
     <>
@@ -33,6 +35,7 @@ const App = () => {
           <Route path="/settings" element={<Settings />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </BrowserRouter>
       <Footer />
