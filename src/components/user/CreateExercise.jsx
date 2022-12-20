@@ -6,6 +6,23 @@ import Navbar from "./Navbar";
 
 const CreateExercise = () => {
   const username = sessionStorage.getItem("user");
+  const [exercises, setExercises] = useState([]);
+  axios
+    .get(`http://localhost:5000/exercise/${username}`)
+    .then((res) => setExercises(res.data))
+    .catch((err) => console.log(err));
+  const deleteExercise = (id) => {
+    axios
+      .post(`http://localhost:5000/exercise/delete/${id}`)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+    setExercises((prevValue) => {
+      return prevValue.filter((index) => {
+        return index._id !== id;
+      });
+    });
+  };
+
   const [exerciseName, setDescription] = useState("");
   const [duration, setDuration] = useState(0);
   const [date, setDate] = useState(new Date());
@@ -32,7 +49,6 @@ const CreateExercise = () => {
       .post("http://localhost:5000/exercise/add", exercise)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
-    window.location = "/dashboard";
   };
 
   return (
@@ -84,6 +100,33 @@ const CreateExercise = () => {
           <br />
         </div>
       </form>
+      <table>
+        <thead>
+          <tr>
+            <th>username</th>
+            <th>exercise</th>
+            <th>duration</th>
+            <th>date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {exercises.map((exercise, index) => {
+            return (
+              <tr key={index}>
+                <td>{exercise.username}</td>
+                <td>{exercise.exerciseName}</td>
+                <td>{exercise.duration}</td>
+                <td>{exercise.date}</td>
+                <td>
+                  <button onClick={() => deleteExercise(exercise._id)}>
+                    DELETE
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
